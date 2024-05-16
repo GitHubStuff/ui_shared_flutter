@@ -4,7 +4,7 @@ import 'package:gap/gap.dart';
 import '../gen/assets.gen.dart';
 
 //TODO: Replace with your samples that feature your package
-import 'package:package_template/package_template.dart';
+import 'package:ui_shared/ui_shared.dart';
 
 class InitialScreen extends StatelessWidget {
   final String title;
@@ -48,7 +48,7 @@ class InitialScreen extends StatelessWidget {
               height: 100,
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Assets.images.ltmm1024x1024.image(),
+                child: Assets.images.share1024x1024.image(),
               ),
             ),
           ),
