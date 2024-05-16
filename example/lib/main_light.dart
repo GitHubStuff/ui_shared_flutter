@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'screens/bootstrap.dart';
+import 'bootstrap.dart';
 
 void main() async => bootStrap(ThemeMode.light);
