@@ -1,5 +1,5 @@
-import 'package:shared_demo/screens/initial_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:ui_extensions_demo/screens/home_scaffold.dart';
 
 void bootStrap(ThemeMode themeMode) {
   WidgetsFlutterBinding.ensureInitialized();
@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
       darkTheme: ThemeData.dark(),
       themeMode: themeMode,
       localizationsDelegates: const [],
-      home: InitialScreen(title: 'Flutter Demo ${themeMode.name} mode'),
+      home: HomeScaffold(title: 'Flutter Demo ${themeMode.name} mode'),
     );
   }
 }
