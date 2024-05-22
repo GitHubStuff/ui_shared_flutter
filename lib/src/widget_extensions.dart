@@ -94,34 +94,3 @@ extension WidgetExtensions on Widget {
         color: color,
       );
 }
-
-// Wrap a child widget with a `SizeMeasuringWidget` to get the size of the widget
-class SizeMeasuringWidget extends StatefulWidget {
-  final Widget child;
-  final ValueChanged<Size> onSizeChanged;
-
-  const SizeMeasuringWidget({
-    super.key,
-    required this.child,
-    required this.onSizeChanged,
-  });
-
-  @override
-  State<SizeMeasuringWidget> createState() => _SizeMeasuringWidgetState();
-}
-
-class _SizeMeasuringWidgetState extends State<SizeMeasuringWidget> {
-  @override
-  void initState() {
-    super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) => _updateSize());
-  }
-
-  void _updateSize() {
-    final size = context.size ?? Size.zero;
-    widget.onSizeChanged(size);
-  }
-
-  @override
-  Widget build(BuildContext context) => widget.child;
-}

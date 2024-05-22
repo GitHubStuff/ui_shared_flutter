@@ -1,4 +1,4 @@
-# Flutter Extensions Package - ui_extensions_flutter
+# Flutter Extensions Package - ui_shared_flutter
 
 This library provides a set of extensions to streamline and enhance the development experience in Flutter by adding convenient methods to existing Flutter types like `BuildContext` and `Widget`.
 
@@ -48,14 +48,29 @@ The `WidgetExtensions` add decoration and layout utilities directly to any widge
 - **Padding Utilities**: Apply various padding configurations.
 - **Container Wrapping**: Wrap a widget with additional spacing and optional color.
 
+#### Helper Widget
+
+```dart
+
+import 'package:ui_shared/ui_shared.dart';
+
+// Get the position and Size of the child widget.
+class PositionAndSizeWidget extends StatefulWidget {
+  final Widget child;
+  final void Function(Size size, Offset position) onLayout;
+}
+```
+
+Wrapping a widget in ```PositionAndSizeWidget``` arranges for a callback that will return size and position of the child widget.
+
 ## Getting Started
 
 ### Installation
 
 ```yaml
 dependencies:
-  ui_extensions_flutter:
-    git: https://github.com/GitHubStuff/ui_extensions_flutter.git
+  ui_shared_flutter:
+    git: https://github.com/GitHubStuff/ui_shared_flutter.git
 ```
 
 To use these extensions, simply include the extension file in your Flutter project.
@@ -63,7 +78,7 @@ To use these extensions, simply include the extension file in your Flutter proje
 Here's a simple example to demonstrate using some of the context and widget extensions:
 
 ```dart
-import 'package:ui_extensions_flutter/ui_extensions_flutter.dart';
+import 'package:ui_shared/ui_shared.dart';
 
 class MyHomePage extends StatelessWidget {
   @override

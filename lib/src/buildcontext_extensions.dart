@@ -27,7 +27,7 @@ extension BuildContextExtension<T> on BuildContext {
   ThemeData get theme => Theme.of(this);
 
   /// Checks if the keyboard is visible in the current context.
-  //NOTE: Cannot use _cachedMediaQuery here as it may not be updated in time.
+  //NOTE: Cannot use _cachedMediaQuery here as it may not be updated over time.
   bool get isKeyBoardOpen => MediaQuery.of(this).viewInsets.bottom > 0;
 
   /// Hides the keyboard if it is not currently the focus.

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:ui_extensions_flutter/ui_extensions_flutter.dart';
+import 'package:ui_shared/ui_shared.dart';
 
 import '../gen/assets.gen.dart';
 
@@ -11,6 +11,9 @@ class HomeWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final k = MediaQuery.of(context).viewInsets.bottom;
+    debugPrint('K . $k');
+
     return SingleChildScrollView(
       child: Center(
         child: Column(
@@ -22,7 +25,7 @@ class HomeWidget extends StatelessWidget {
               SizedBox(
                 width: 100,
                 height: 100,
-                child: Assets.images.context1024x1024.image(),
+                child: Assets.images.share1024x1024.image(),
               ).withPaddingAll(15.0).withBorder(
                     Colors.red,
                     width: 2.0,
@@ -31,6 +34,8 @@ class HomeWidget extends StatelessWidget {
             const Gap(4.0),
             ElevatedButton(
               onPressed: () {
+                final j = MediaQuery.of(context).viewInsets.bottom;
+                debugPrint("J . $j");
                 showCustomSnackBar(
                   context,
                   context.isKeyBoardOpen ? 'Keyboard Open' : 'Keyboard Closed',
@@ -43,9 +48,9 @@ class HomeWidget extends StatelessWidget {
             ),
             ElevatedButton(
               onPressed: () {
-                SizeMeasuringWidget(
-                  onSizeChanged: (size) {
-                    showCustomSnackBar(context, 'Size: $size');
+                PositionAndSizeWidget(
+                  onLayout: (size, offset) {
+                    showCustomSnackBar(context, 'Size: $size, $offset');
                   },
                   child: const Text('Size Measuring Widget'),
                 );
@@ -57,17 +62,11 @@ class HomeWidget extends StatelessWidget {
             ),
             const Gap(4.0),
             const TextField().withPaddingAll(6.0).withBorder(Colors.amber),
-            SizeMeasuringWidget(
-              onSizeChanged: (size) {
-                showCustomSnackBar(context, 'Size: $size');
-              },
-              child: const Text('Size Measuring Widget'),
-            ),
-            const Gap(4.0),
+            const Gap(3.0),
             ElevatedButton(
                 onPressed: () => context.hideKeyboard(),
                 child: const Text('HideKeyboard')),
-            const Gap(4.0),
+            const Gap(3.0),
             const Text('Welcome to the UI Extensions Flutter Demo!',
                     style: TextStyle(color: Colors.purple))
                 .withPaddingAll(3)

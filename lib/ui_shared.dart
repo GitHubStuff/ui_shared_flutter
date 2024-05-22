@@ -4,6 +4,7 @@ export 'src/buildcontext_extensions.dart';
 export 'src/custom_snack_bar.dart';
 export 'src/material_color.dart';
 export 'src/os_platforms.dart';
+export 'src/position_and_size.dart';
 export 'src/widget_extensions.dart';
 
 import 'package:flutter/material.dart';

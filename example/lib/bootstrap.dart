@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ui_extensions_demo/screens/home_scaffold.dart';
+
+import 'screens/home_scaffold.dart';
 
 void bootStrap(ThemeMode themeMode) {
   WidgetsFlutterBinding.ensureInitialized();
