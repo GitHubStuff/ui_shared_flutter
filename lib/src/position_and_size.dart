@@ -19,14 +19,20 @@ class _PositionAndSizeWidgetState extends State<PositionAndSizeWidget> {
   final GlobalKey _key = GlobalKey();
 
   @override
-  Widget build(BuildContext context) {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      final renderBox = _key.currentContext?.findRenderObject() as RenderBox?;
-      if (renderBox != null) {
-        widget.onLayout(renderBox.size, renderBox.localToGlobal(Offset.zero));
-      }
-    });
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback(_onLayoutDone);
+  }
 
+  void _onLayoutDone(_) {
+    final renderBox = _key.currentContext?.findRenderObject() as RenderBox?;
+    if (renderBox != null) {
+      widget.onLayout(renderBox.size, renderBox.localToGlobal(Offset.zero));
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Container(
       key: _key,
       child: widget.child,
