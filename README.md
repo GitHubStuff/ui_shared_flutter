@@ -10,10 +10,27 @@ This library provides a set of extensions to streamline and enhance the developm
 
 The `BuildContextExtension` provides easy access to frequently used properties and methods related to the media query, screen size, and keyboard visibility.
 
-- **Media Query Access**: Quickly fetch media query data.
+- **Media Query Access**: Quickly/cache fetch media query data.
 - **Screen Size**: Obtain screen dimensions directly.
 - **Keyboard State**: Check if the keyboard is visible.
 - **Hide Keyboard**: Dismiss the keyboard programmatically.
+- **Locale**: Get the current Locale setting
+
+### Material Extensions
+
+*MaterialColor createMaterialColor(Color color);*
+
+Creates a material color from any color.
+
+```dart
+MaterialColor green = MaterialColor(Colors.green);
+
+green[50]
+green[100]
+  :
+  :
+green[900]
+```
 
 ### OS Platform Extensions
 
@@ -47,8 +64,9 @@ The `WidgetExtensions` add decoration and layout utilities directly to any widge
 - **Opacity Control**: Adjust the opacity for widget transparency.
 - **Padding Utilities**: Apply various padding configurations.
 - **Container Wrapping**: Wrap a widget with additional spacing and optional color.
+- **Safe Screen Size**: Size of the screen minus top/bottom safety.
 
-#### Helper Widget
+#### Helpers
 
 ```dart
 
@@ -62,6 +80,31 @@ class PositionAndSizeWidget extends StatefulWidget {
 ```
 
 Wrapping a widget in ```PositionAndSizeWidget``` arranges for a callback that will return size and position of the child widget.
+
+**Floating SnackBar**:
+
+```dart
+void showTimedSnackBar(
+  BuildContext context,
+  dynamic content, {
+  Duration duration = const Duration(seconds: 2),
+  Color backgroundColor = Colors.amber,
+})
+
+// example
+showTimedSnackBar(context, 'Pass a string');
+showTimedSnackBar(context, ColoredBox(color:gree)); // pass a widget
+```
+
+**StatefulWidgetExtension**:
+
+extends a stateful widget and provides callback:
+
+- afterFirstLayout
+- reportTextScaleFactor
+- didChangePlatformBrightness
+- didChangeAppLifecycleState
+- didChangeTextScaleFactor
 
 ## Getting Started
 

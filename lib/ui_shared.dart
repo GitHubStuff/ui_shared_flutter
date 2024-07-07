@@ -1,16 +1,21 @@
-library ui_shared;
+/// A library of shared utilities and extensions for Flutter apps.
+// ignore_for_file: public_member_api_docs
 
-export 'src/buildcontext_extensions.dart';
-export 'src/custom_snack_bar.dart';
-export 'src/material_color.dart';
-export 'src/os_platforms.dart';
-export 'src/position_and_size.dart';
-export 'src/widget_extensions.dart';
+library ui_shared;
 
 import 'package:flutter/material.dart';
 
+export 'src/buildcontext_extensions.dart';
+export 'src/material_color.dart';
+export 'src/os_platforms.dart';
+export 'src/position_and_size.dart';
+export 'src/show_timed_snackbar.dart';
+export 'src/widget_extensions.dart';
+
+/// A function that returns the type of a generic class.
 Type typeOf<T>() => T;
 
+/// Typedef of Json and JsonList for better readability.
 typedef Json = Map<String, dynamic>;
 typedef JsonList = List<dynamic>;
 
@@ -41,19 +46,17 @@ class Global {
 /// ```
 /// This way, you can use the value directly or set it to null.
 class Nullable<T> {
-  final T? _value;
-
   Nullable(this._value);
+  final T? _value;
 
   T? get value => _value;
 }
 
 /// Define a base custom error class
 class CustomError implements Exception {
+  CustomError(this.message);
   final String message;
 
-  CustomError(this.message);
-
   @override
-  String toString() => "CustomError: $message";
+  String toString() => 'CustomError: $message';
 }

@@ -84,7 +84,7 @@ class _HomefulWidgetState extends State<HomefulWidget>
               onPressed: () {
                 final j = MediaQuery.of(context).viewInsets.bottom != 0;
                 debugPrint("J: $j");
-                showCustomSnackBar(
+                showTimedSnackBar(
                   context,
                   isKeyboardVisible ? 'Keyboard Open' : 'Keyboard Closed',
                 );
@@ -101,7 +101,7 @@ class _HomefulWidgetState extends State<HomefulWidget>
               onPressed: () {
                 PositionAndSizeWidget(
                   onLayout: (size, offset) {
-                    showCustomSnackBar(context, 'Size: $size - $offset');
+                    showTimedSnackBar(context, 'Size: $size - $offset');
                   },
                   child: const Text('Size Measuring Widget'),
                 );
@@ -115,7 +115,7 @@ class _HomefulWidgetState extends State<HomefulWidget>
             const TextField().withPaddingAll(6.0).withBorder(Colors.amber),
             PositionAndSizeWidget(
               onLayout: (size, offset) {
-                showCustomSnackBar(context, 'Size: $size - $offset');
+                showTimedSnackBar(context, 'Size: $size - $offset');
               },
               child: const Text('Size Measuring Widget'),
             ),

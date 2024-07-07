@@ -36,7 +36,7 @@ class HomeWidget extends StatelessWidget {
               onPressed: () {
                 final j = MediaQuery.of(context).viewInsets.bottom;
                 debugPrint("J . $j");
-                showCustomSnackBar(
+                showTimedSnackBar(
                   context,
                   context.isKeyBoardOpen ? 'Keyboard Open' : 'Keyboard Closed',
                 );
@@ -50,7 +50,7 @@ class HomeWidget extends StatelessWidget {
               onPressed: () {
                 PositionAndSizeWidget(
                   onLayout: (size, offset) {
-                    showCustomSnackBar(context, 'Size: $size, $offset');
+                    showTimedSnackBar(context, 'Size: $size, $offset');
                   },
                   child: const Text('Size Measuring Widget'),
                 );

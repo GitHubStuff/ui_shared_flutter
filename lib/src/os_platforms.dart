@@ -1,3 +1,5 @@
+// ignore_for_file: public_member_api_docs
+
 import 'dart:io' show Platform;
 
 import 'package:flutter/cupertino.dart';
@@ -5,6 +7,7 @@ import 'package:flutter/material.dart';
 
 Widget _spinner = OSEnum.getPlatformSpinner;
 
+/// Enum to get the current OS and its spinner
 enum OSEnum {
   android,
   fuchsia,
@@ -23,8 +26,8 @@ enum OSEnum {
     throw UnsupportedError('This platform is not supported');
   }
 
-  static Widget get getAppSpinner => _spinner;
-  static set setAppSpinner(Widget spinner) => _spinner = spinner;
+  static Widget get appSpinner => _spinner;
+  static set appSpinner(Widget spinner) => _spinner = spinner;
 
   static Widget get getPlatformSpinner {
     switch (getCurrentOS) {

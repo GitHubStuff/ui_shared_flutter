@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_positional_boolean_parameters
+
 import 'package:flutter/material.dart';
 
 /// A Dart extension on the Flutter `Widget` class to provide additional
@@ -5,7 +7,7 @@ import 'package:flutter/material.dart';
 extension WidgetExtensions on Widget {
   /// Returns an invisible version of the widget if [isVisible] is `true`,
   /// otherwise returns the widget as is.
-  Widget hide(bool isVisible) => isVisible ? withOpacity(0.0) : this;
+  Widget hide(bool isVisible) => isVisible ? withOpacity(0) : this;
 
   /// Removes the widget from the layout if [isRemove] is `true`, replacing it
   /// with an empty box, otherwise returns the widget as is.
@@ -36,8 +38,10 @@ extension WidgetExtensions on Widget {
   /// Applies opacity to the widget, defined by [opacityValue].
   /// Throws an assertion error if [opacityValue] is not between 0.0 and 1.0.
   Widget withOpacity(double opacityValue) {
-    assert(opacityValue >= 0.0 && opacityValue <= 1.0,
-        'Opacity must be between 0.0 and 1.0');
+    assert(
+      opacityValue >= 0.0 && opacityValue <= 1.0,
+      'Opacity must be between 0.0 and 1.0',
+    );
     return Opacity(opacity: opacityValue, child: this);
   }
 
@@ -61,8 +65,10 @@ extension WidgetExtensions on Widget {
 
   /// Adds symmetric padding to the widget, specified by [horizontal] and
   /// [vertical].
-  Widget withSymmetricPadding(
-          {double horizontal = 0.0, double vertical = 0.0}) =>
+  Widget withSymmetricPadding({
+    double horizontal = 0.0,
+    double vertical = 0.0,
+  }) =>
       Padding(
         padding:
             EdgeInsets.symmetric(horizontal: horizontal, vertical: vertical),
@@ -78,7 +84,7 @@ extension WidgetExtensions on Widget {
     double bottom = 0.0,
     Color color = Colors.transparent,
   }) =>
-      Container(
+      ColoredBox(
         color: color,
         child: withPadding(left: left, right: right, top: top, bottom: bottom),
       );

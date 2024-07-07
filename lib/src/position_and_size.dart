@@ -2,14 +2,18 @@ import 'package:flutter/material.dart';
 
 /// Wrapper widget that provides the size and position of its child widget.
 class PositionAndSizeWidget extends StatefulWidget {
-  final Widget child;
-  final void Function(Size size, Offset position) onLayout;
-
+  /// Constructor for the [PositionAndSizeWidget].
   const PositionAndSizeWidget({
-    super.key,
     required this.onLayout,
     required this.child,
+    super.key,
   });
+
+  /// The child widget to provide the size and position for.
+  final Widget child;
+
+  /// Callback function that provides the size and position of the child widget.
+  final void Function(Size size, Offset position) onLayout;
 
   @override
   State<PositionAndSizeWidget> createState() => _PositionAndSizeWidgetState();

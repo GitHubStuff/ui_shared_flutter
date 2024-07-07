@@ -32,12 +32,13 @@ extension BuildContextExtension<T> on BuildContext {
 
   /// Hides the keyboard if it is not currently the focus.
   void hideKeyboard() {
-    var currentFocus = FocusScope.of(this);
+    final currentFocus = FocusScope.of(this);
     if (!currentFocus.hasPrimaryFocus) {
       currentFocus.unfocus();
     }
   }
 
+  /// Returns the safe area size of the screen.
   Size safeScreenSize() => Size(
         width,
         height - mediaQuery.padding.top - mediaQuery.padding.bottom,

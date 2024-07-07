@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-// Function to create a MaterialColor from any color
+/// Function to create a MaterialColor from any color
 MaterialColor createMaterialColor(Color color) {
-  Map<int, Color> colorMap = {
+  final colorMap = <int, Color>{
     050: color.withOpacity(0.1),
     100: color.withOpacity(0.2),
     200: color.withOpacity(0.3),
@@ -12,7 +12,7 @@ MaterialColor createMaterialColor(Color color) {
     600: color.withOpacity(0.7),
     700: color.withOpacity(0.8),
     800: color.withOpacity(0.9),
-    900: color.withOpacity(1.0),
+    900: color.withOpacity(1),
   };
   return MaterialColor(color.value, colorMap);
 }
