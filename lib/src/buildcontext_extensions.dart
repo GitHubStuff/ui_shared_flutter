@@ -1,3 +1,5 @@
+import 'dart:ffi' as ffi;
+
 import 'package:flutter/material.dart';
 
 /// A cache for storing the last retrieved MediaQueryData.
@@ -31,12 +33,9 @@ extension BuildContextExtension<T> on BuildContext {
   bool get isKeyBoardOpen => MediaQuery.of(this).viewInsets.bottom > 0;
 
   /// Hides the keyboard if it is not currently the focus.
-  void hideKeyboard() {
-    final currentFocus = FocusScope.of(this);
-    if (!currentFocus.hasPrimaryFocus) {
-      currentFocus.unfocus();
-    }
-  }
+  void hideKeyboard() => !FocusScope.of(this).hasPrimaryFocus
+      ? FocusScope.of(this).unfocus()
+      : ffi.Void;
 
   /// Returns the safe area size of the screen.
   Size safeScreenSize() => Size(
